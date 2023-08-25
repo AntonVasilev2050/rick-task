@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,14 +18,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.avv2050soft.ricktask.R
+import com.avv2050soft.ricktask.presentation.ui.theme.GrayLight
 
 @Composable
 fun CamerasScreen() {
     Column(
-    modifier = Modifier
-        .fillMaxSize()
-        .background(colorResource(id = R.color.white))
-        .wrapContentSize(Alignment.Center)
+        modifier = Modifier
+            .fillMaxSize()
+            .background(GrayLight)
+            .wrapContentSize(Alignment.Center)
     ) {
         Text(
             text = stringResource(R.string.cameras),

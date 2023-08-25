@@ -17,13 +17,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.avv2050soft.ricktask.R
+import com.avv2050soft.ricktask.presentation.ui.theme.GrayLight
 
 @Composable
 fun DoorsScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.white))
+            .background(GrayLight)
             .wrapContentSize(Alignment.Center)
     ) {
         Text(

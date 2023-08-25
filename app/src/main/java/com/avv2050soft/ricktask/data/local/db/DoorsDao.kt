@@ -5,7 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.avv2050soft.ricktask.data.local.db_model.DoorItemDb
-import com.avv2050soft.ricktask.domain.models.doors.DoorItem
 
 @Dao
 interface DoorsDao {
@@ -13,5 +12,5 @@ interface DoorsDao {
     suspend fun insert(doorItemDb: DoorItemDb)
 
     @Query("SELECT * FROM door_items")
-    suspend fun getAllDoorItems(): List<DoorItem>
+    suspend fun getAllDoorItems(): List<DoorItemDb>
 }
