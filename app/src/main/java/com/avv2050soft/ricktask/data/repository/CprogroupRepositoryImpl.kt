@@ -10,13 +10,13 @@ import javax.inject.Inject
 class CprogroupRepositoryImpl @Inject constructor(
     private val mapper: CprogroupMapper
 ) : CprogroupRepository {
-    override suspend fun getCameras(): CamerasResponse {
+    override suspend fun getCamerasResponse(): CamerasResponse {
         return mapper.mapCamerasResponseDtoToCamerasResponse(
             CprogroupApi.create().getCamerasResponse()
         )
     }
 
-    override suspend fun getDoors(): DoorsResponse {
+    override suspend fun getDoorsResponse(): DoorsResponse {
         return mapper.mapDoorsResponseDtoToDoorsResponse(
             CprogroupApi.create().getDoorsResponse()
         )

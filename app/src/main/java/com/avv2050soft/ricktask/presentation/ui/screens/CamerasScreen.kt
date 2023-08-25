@@ -1,47 +1,88 @@
 package com.avv2050soft.ricktask.presentation.ui.screens
 
-import androidx.compose.foundation.background
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.avv2050soft.ricktask.R
-import com.avv2050soft.ricktask.presentation.ui.theme.GrayLight
+import com.avv2050soft.ricktask.domain.models.cameras.CameraItem
+import com.avv2050soft.ricktask.presentation.MainViewModel
+import com.avv2050soft.ricktask.presentation.utils.CoilImage
 
 @Composable
 fun CamerasScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(GrayLight)
-            .wrapContentSize(Alignment.Center)
-    ) {
-        Text(
-            text = stringResource(R.string.cameras),
-            fontWeight = FontWeight.W400,
-            fontFamily = FontFamily.Monospace,
-            color = Color.Black,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            textAlign = TextAlign.Center,
-            fontSize = 16.sp
-        )
+    val viewModel: MainViewModel = hiltViewModel()
+    viewModel.loadCamerasResponse()
+    val camerasResponse by remember { viewModel.camerasResponseState }
+    val roomList = camerasResponse?.data?.room
+    Column {
+        Text(text = "Living Room", modifier = Modifier.padding(16.dp))
+        LazyColumn(
+            modifier = Modifier
+                .padding(start = 16.dp, top = 0.dp, end = 16.dp, bottom = 0.dp)
+                .fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            camerasResponse?.data?.let {
+                items(items = it.cameras) {
+                    CameraViewItem(cameraItem = it, roomList)
+                }
+            }
+        }
     }
+
 }
 
-@Preview(showBackground = true)
 @Composable
-fun CamerasScreenPreview() {
-    CamerasScreen()
+fun CameraViewItem(cameraItem: CameraItem, roomList: List<String>?) {
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom = 6.dp),
+        shape = RoundedCornerShape(16.dp),
+        shadowElevation = 8.dp,
+        color = Color.White
+    ) {
+        Column {
+            if (cameraItem.room == roomList?.get(0)) {
+//                Text(text = cameraItem.room.toString(), modifier = Modifier.padding(16.dp))
+                CoilImage(
+                    data = cameraItem.snapshot,
+                    Modifier.fillMaxWidth(),
+                    contentDescription = "Camera snapshot"
+                )
+                Text(text = cameraItem.name, modifier = Modifier.padding(16.dp))
+            }
+        }
+        if (cameraItem.room == roomList?.get(0) && cameraItem.rec){
+            Image(
+                painter = painterResource(id = R.drawable.rec),
+                contentDescription = null,
+                modifier = Modifier.padding(20.dp),
+                alignment = Alignment.TopStart
+            )
+        }
+        if (cameraItem.room == roomList?.get(0) && cameraItem.favorites){
+            Image(
+                painter = painterResource(id = R.drawable.star),
+                contentDescription = null,
+                modifier = Modifier.padding(20.dp),
+                alignment = Alignment.TopEnd
+            )
+        }
+    }
 }

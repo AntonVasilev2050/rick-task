@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Data(
     @SerializedName("cameras")
-    val cameraItems: List<CameraItem>,
+    var cameras: List<CameraItem>,
     @SerializedName("room")
     val room: List<String>
 )

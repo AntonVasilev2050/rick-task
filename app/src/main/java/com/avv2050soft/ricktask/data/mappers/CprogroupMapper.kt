@@ -27,7 +27,7 @@ class CprogroupMapper {
         favorites = cameraItem.favorites,
         name = cameraItem.name,
         rec = cameraItem.rec,
-        room = cameraItem.room,
+        room = if (cameraItem.room.isNullOrEmpty()){"Unknown Room"}else{cameraItem.room},
         snapshot = cameraItem.snapshot
     )
 

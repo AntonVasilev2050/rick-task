@@ -18,7 +18,7 @@ interface CprogroupApi {
 
 
     companion object {
-        private const val BASE_URL = "http://cars.cprogroup.ru/api/rubetek/"
+        private const val BASE_URL = "https://cars.cprogroup.ru/api/rubetek/"
 
         fun create(): CprogroupApi {
             val logger =

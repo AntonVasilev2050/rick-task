@@ -13,7 +13,7 @@ data class CameraItem(
     @SerializedName("rec")
     val rec: Boolean,
     @SerializedName("room")
-    val room: String,
+    var room: String?,
     @SerializedName("snapshot")
     val snapshot: String
 )

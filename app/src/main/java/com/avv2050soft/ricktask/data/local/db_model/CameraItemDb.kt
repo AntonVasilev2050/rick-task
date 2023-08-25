@@ -16,7 +16,7 @@ data class CameraItemDb (
     @ColumnInfo(name = "rec")
     val rec: Boolean,
     @ColumnInfo(name = "room")
-    val room: String,
+    val room: String?,
     @ColumnInfo(name = "snapshot")
     val snapshot: String
 )
