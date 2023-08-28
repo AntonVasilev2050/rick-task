@@ -28,8 +28,20 @@ import com.avv2050soft.ricktask.presentation.utils.CoilImage
 @Composable
 fun DoorsScreen() {
     val viewModel: MainViewModel = hiltViewModel()
+    viewModel.getAllDoorItemsFromDb()
+    val doorItemListFromDb by remember { viewModel.doorItemDbState }
+    var doorItems = listOf<DoorItem>()
     viewModel.loadDoorsResponse()
     val doorsResponse by remember { viewModel.doorsResponseState }
+    if (doorItemListFromDb.isNotEmpty()){
+        doorItems = doorItemListFromDb
+    }else{
+        viewModel.loadDoorsResponse()
+        doorItems = doorsResponse?.data ?: emptyList()
+        for (doorItem in doorItems){
+            viewModel.insertDoorItemInDatabase(doorItem)
+        }
+    }
     LazyColumn(
         modifier = Modifier
             .padding(start = 16.dp, top = 0.dp, end = 16.dp, bottom = 0.dp)
@@ -37,7 +49,7 @@ fun DoorsScreen() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         doorsResponse?.let {
-            items(items = it.data) {
+            items(items = doorItems) {
                 DoorViewItem(doorItem = it)
             }
         }
@@ -72,8 +84,6 @@ fun DoorViewItem(doorItem: DoorItem) {
                     modifier = Modifier.padding(end = 16.dp)
                 )
             }
-
         }
-
     }
 }

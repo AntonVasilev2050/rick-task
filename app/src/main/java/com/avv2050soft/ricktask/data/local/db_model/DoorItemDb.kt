@@ -16,5 +16,5 @@ data class DoorItemDb(
     @ColumnInfo(name = "room")
     val room: String,
     @ColumnInfo(name = "snapshot")
-    val snapshot: String
+    val snapshot: String?
 )

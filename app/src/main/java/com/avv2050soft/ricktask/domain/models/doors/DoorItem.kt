@@ -13,5 +13,5 @@ data class DoorItem(
     @SerializedName("room")
     var room: String,
     @SerializedName("snapshot")
-    val snapshot: String
+    val snapshot: String?
 )

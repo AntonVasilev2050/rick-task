@@ -36,7 +36,7 @@ class CprogroupMapper {
         favorites = doorItem.favorites,
         name = doorItem.name,
         room = doorItem.room,
-        snapshot = doorItem.snapshot
+        snapshot = doorItem.snapshot ?: null
     )
 
     fun mapCameraItemDbListToCameraItemList(cameraItemDbList: List<CameraItemDb>) : List<CameraItem> {

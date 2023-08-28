@@ -26,8 +26,20 @@ import com.avv2050soft.ricktask.presentation.utils.CoilImage
 @Composable
 fun CamerasScreen() {
     val viewModel: MainViewModel = hiltViewModel()
-    viewModel.loadCamerasResponse()
+    viewModel.getAllCameraItemsFromDb()
+    val cameraItemListFromDb by remember { viewModel.cameraItemsDbState }
+    var cameraItems = listOf<CameraItem>()
     val camerasResponse by remember { viewModel.camerasResponseState }
+    if (cameraItemListFromDb.isNotEmpty()) {
+        cameraItems = cameraItemListFromDb
+    } else {
+        viewModel.loadCamerasResponse()
+        cameraItems = camerasResponse?.data?.cameras ?: emptyList()
+        for (cameraItem in cameraItems) {
+            viewModel.insertCameraItemInDatabase(cameraItem)
+        }
+    }
+
     val roomList = camerasResponse?.data?.room
     Column {
         Text(text = "Living Room", modifier = Modifier.padding(16.dp))
@@ -37,14 +49,11 @@ fun CamerasScreen() {
                 .fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            camerasResponse?.data?.let {
-                items(items = it.cameras) {
-                    CameraViewItem(cameraItem = it, roomList)
-                }
+            items(items = cameraItems) {
+                CameraViewItem(cameraItem = it, roomList = roomList)
             }
         }
     }
-
 }
 
 @Composable
@@ -59,7 +68,6 @@ fun CameraViewItem(cameraItem: CameraItem, roomList: List<String>?) {
     ) {
         Column {
             if (cameraItem.room == roomList?.get(0)) {
-//                Text(text = cameraItem.room.toString(), modifier = Modifier.padding(16.dp))
                 CoilImage(
                     data = cameraItem.snapshot,
                     Modifier.fillMaxWidth(),
@@ -68,7 +76,7 @@ fun CameraViewItem(cameraItem: CameraItem, roomList: List<String>?) {
                 Text(text = cameraItem.name, modifier = Modifier.padding(16.dp))
             }
         }
-        if (cameraItem.room == roomList?.get(0) && cameraItem.rec){
+        if (cameraItem.room == roomList?.get(0) && cameraItem.rec) {
             Image(
                 painter = painterResource(id = R.drawable.rec),
                 contentDescription = null,
@@ -76,7 +84,7 @@ fun CameraViewItem(cameraItem: CameraItem, roomList: List<String>?) {
                 alignment = Alignment.TopStart
             )
         }
-        if (cameraItem.room == roomList?.get(0) && cameraItem.favorites){
+        if (cameraItem.room == roomList?.get(0) && cameraItem.favorites) {
             Image(
                 painter = painterResource(id = R.drawable.star),
                 contentDescription = null,
