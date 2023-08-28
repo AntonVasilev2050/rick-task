@@ -1,11 +1,11 @@
-package com.avv2050soft.ricktask.data.local.db_model
+package com.avv2050soft.ricktask.data.local.room.db_model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "door_items")
-data class DoorItemDb(
+@Entity(tableName = "camera_items")
+data class CameraItemDb (
     @PrimaryKey
     @ColumnInfo(name = "id")
     val id: Int,
@@ -13,8 +13,10 @@ data class DoorItemDb(
     val favorites: Boolean,
     @ColumnInfo(name = "name")
     val name: String,
+    @ColumnInfo(name = "rec")
+    val rec: Boolean,
     @ColumnInfo(name = "room")
-    val room: String,
+    val room: String?,
     @ColumnInfo(name = "snapshot")
-    val snapshot: String?
+    val snapshot: String
 )

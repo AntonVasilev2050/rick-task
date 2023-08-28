@@ -8,6 +8,7 @@ class GetAllDoorItemsUseCase @Inject constructor(
     private val repository: DatabaseRepository
 ) {
     suspend fun getAllDoorItems(): List<DoorItem>{
-        return repository.getAllDoorItems()
+        val doorItems = repository.getAllDoorItems()
+        return doorItems
     }
 }

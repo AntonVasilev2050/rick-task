@@ -1,7 +1,7 @@
-package com.avv2050soft.ricktask.data.mappers
+package com.avv2050soft.ricktask.data.local.room.mappers
 
-import com.avv2050soft.ricktask.data.local.db_model.CameraItemDb
-import com.avv2050soft.ricktask.data.local.db_model.DoorItemDb
+import com.avv2050soft.ricktask.data.local.room.db_model.CameraItemDb
+import com.avv2050soft.ricktask.data.local.room.db_model.DoorItemDb
 import com.avv2050soft.ricktask.data.network.dto.CamerasResponseDto
 import com.avv2050soft.ricktask.data.network.dto.DoorsResponseDto
 import com.avv2050soft.ricktask.domain.models.cameras.CameraItem
@@ -9,7 +9,7 @@ import com.avv2050soft.ricktask.domain.models.cameras.CamerasResponse
 import com.avv2050soft.ricktask.domain.models.doors.DoorItem
 import com.avv2050soft.ricktask.domain.models.doors.DoorsResponse
 
-class CprogroupMapper {
+class RoomMapper {
     fun mapCamerasResponseDtoToCamerasResponse(camerasResponseDto: CamerasResponseDto) =
         CamerasResponse(
             data = camerasResponseDto.data,

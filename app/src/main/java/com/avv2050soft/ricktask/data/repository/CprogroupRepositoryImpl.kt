@@ -1,6 +1,6 @@
 package com.avv2050soft.ricktask.data.repository
 
-import com.avv2050soft.ricktask.data.mappers.CprogroupMapper
+import com.avv2050soft.ricktask.data.local.room.mappers.RoomMapper
 import com.avv2050soft.ricktask.data.network.api.CprogroupApi
 import com.avv2050soft.ricktask.domain.models.cameras.CamerasResponse
 import com.avv2050soft.ricktask.domain.models.doors.DoorsResponse
@@ -8,7 +8,7 @@ import com.avv2050soft.ricktask.domain.repository.CprogroupRepository
 import javax.inject.Inject
 
 class CprogroupRepositoryImpl @Inject constructor(
-    private val mapper: CprogroupMapper
+    private val mapper: RoomMapper
 ) : CprogroupRepository {
     override suspend fun getCamerasResponse(): CamerasResponse {
         return mapper.mapCamerasResponseDtoToCamerasResponse(

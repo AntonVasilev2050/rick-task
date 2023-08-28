@@ -1,10 +1,10 @@
-package com.avv2050soft.ricktask.data.local.db
+package com.avv2050soft.ricktask.data.local.room.db
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.avv2050soft.ricktask.data.local.db_model.DoorItemDb
+import com.avv2050soft.ricktask.data.local.room.db_model.DoorItemDb
 
 @Dao
 interface DoorsDao {

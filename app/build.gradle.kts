@@ -3,9 +3,11 @@ import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    kotlin("kapt")
+//    kotlin("kapt")
     id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
+    id("kotlin-kapt")
+    id("realm-android")
 }
 
 android {
@@ -72,37 +74,44 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-    implementation ("androidx.navigation:navigation-compose:2.7.0")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+    implementation("androidx.navigation:navigation-compose:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
 
     //retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.2")
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2")
 
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
-    implementation ("com.github.bumptech.glide:glide:4.14.2")
-    annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
-    implementation ("com.github.skydoves:landscapist-glide:2.1.7")
-    implementation ("io.coil-kt:coil-compose:2.3.0")
+    implementation("com.github.bumptech.glide:glide:4.14.2")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
+    implementation("com.github.skydoves:landscapist-glide:2.1.7")
+    implementation("io.coil-kt:coil-compose:2.3.0")
 
     val room_version = "2.5.2"
-    implementation ("androidx.room:room-runtime:$room_version")
-    implementation ("androidx.room:room-ktx:$room_version")
-    ksp ("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
 
     implementation("com.google.dagger:hilt-android:2.46")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
     kapt("com.google.dagger:hilt-android-compiler:2.46")
 
     // Accompanist
-    implementation ("com.google.accompanist:accompanist-pager:0.25.0") // Pager
-    implementation ("com.google.accompanist:accompanist-pager-indicators:0.25.0") // Pager Indicators
+    implementation("com.google.accompanist:accompanist-pager:0.25.0") // Pager
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.25.0") // Pager Indicators
+
+//    realm
+//    implementation("io.realm:realm-android:10.7.0")
+//    implementation ("io.realm.kotlin:library-base:1.10.0")
+//    implementation ("io.realm.kotlin:library-sync:1.10.0")// If using Device Sync
+//    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0") // If using coroutines with the SDK
 }
+
 
 // Allow references to generated code
 kapt {

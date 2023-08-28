@@ -1,11 +1,11 @@
-package com.avv2050soft.ricktask.data.local.db
+package com.avv2050soft.ricktask.data.local.room.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.avv2050soft.ricktask.data.local.db_model.CameraItemDb
-import com.avv2050soft.ricktask.data.local.db_model.DoorItemDb
+import com.avv2050soft.ricktask.data.local.room.db_model.CameraItemDb
+import com.avv2050soft.ricktask.data.local.room.db_model.DoorItemDb
 
 @Database(
     entities = [CameraItemDb::class, DoorItemDb::class],
@@ -23,7 +23,7 @@ abstract class CprogroupDatabase: RoomDatabase() {
         @Volatile
         private var INSTANCE: CprogroupDatabase? = null
 
-        fun getInstance(context: Context): CprogroupDatabase{
+        fun getInstance(context: Context): CprogroupDatabase {
             return INSTANCE ?: synchronized(this){
                 val instance = Room.databaseBuilder(
                     context.applicationContext,

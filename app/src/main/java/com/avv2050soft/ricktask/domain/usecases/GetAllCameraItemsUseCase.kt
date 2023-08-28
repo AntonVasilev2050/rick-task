@@ -8,6 +8,7 @@ class GetAllCameraItemsUseCase @Inject constructor(
     private val repository: DatabaseRepository
 ) {
     suspend fun getAllCameraItems(): List<CameraItem>{
-        return repository.getAllCameraItems()
+        val cameraItems = repository.getAllCameraItems()
+        return cameraItems
     }
 }
