@@ -1,7 +1,7 @@
 package com.avv2050soft.ricktask.data.repository
 
 import com.avv2050soft.ricktask.data.local.room.mappers.RoomMapper
-import com.avv2050soft.ricktask.data.network.api.CprogroupApi
+import com.avv2050soft.ricktask.data.network.retrofit.api.CprogroupApi
 import com.avv2050soft.ricktask.domain.models.cameras.CamerasResponse
 import com.avv2050soft.ricktask.domain.models.doors.DoorsResponse
 import com.avv2050soft.ricktask.domain.repository.CprogroupRepository

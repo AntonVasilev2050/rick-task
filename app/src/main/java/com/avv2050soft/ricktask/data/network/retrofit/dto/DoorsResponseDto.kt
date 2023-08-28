@@ -1,4 +1,4 @@
-package com.avv2050soft.ricktask.data.network.dto
+package com.avv2050soft.ricktask.data.network.retrofit.dto
 
 import com.avv2050soft.ricktask.domain.models.doors.DoorItem
 import com.google.gson.annotations.SerializedName

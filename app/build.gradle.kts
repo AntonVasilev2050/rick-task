@@ -105,11 +105,11 @@ dependencies {
     implementation("com.google.accompanist:accompanist-pager:0.25.0") // Pager
     implementation("com.google.accompanist:accompanist-pager-indicators:0.25.0") // Pager Indicators
 
-//    realm
-//    implementation("io.realm:realm-android:10.7.0")
-//    implementation ("io.realm.kotlin:library-base:1.10.0")
-//    implementation ("io.realm.kotlin:library-sync:1.10.0")// If using Device Sync
-//    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0") // If using coroutines with the SDK
+//    Ktor
+    implementation("io.ktor:ktor-client-core:2.1.2")
+    implementation("io.ktor:ktor-client-json:1.6.4")
+    implementation("io.ktor:ktor-client-gson:1.6.4")
+    implementation("io.ktor:ktor-client-logging:2.1.2")
 }
 
 

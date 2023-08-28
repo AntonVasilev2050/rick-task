@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -99,8 +100,8 @@ fun CameraViewItem(cameraItem: CameraItem, roomList: List<String>?) {
         shadowElevation = 8.dp,
         color = Color.White
     ) {
-        Column {
-            if (cameraItem.room == roomList?.get(0)) {
+        if (cameraItem.room == roomList?.get(0)) {
+            Column {
                 CoilImage(
                     data = cameraItem.snapshot,
                     Modifier.fillMaxWidth(),
@@ -108,7 +109,14 @@ fun CameraViewItem(cameraItem: CameraItem, roomList: List<String>?) {
                 )
                 Text(text = cameraItem.name, modifier = Modifier.padding(16.dp))
             }
+            Image(
+                painter = painterResource(id = R.drawable.play_button),
+                contentDescription = null,
+                modifier = Modifier.padding(top = 100.dp),
+                alignment = Alignment.Center
+            )
         }
+
         if (cameraItem.room == roomList?.get(0) && cameraItem.rec) {
             Image(
                 painter = painterResource(id = R.drawable.rec),

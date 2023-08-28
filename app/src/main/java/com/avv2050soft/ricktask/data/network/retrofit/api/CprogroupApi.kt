@@ -1,7 +1,7 @@
-package com.avv2050soft.ricktask.data.network.api
+package com.avv2050soft.ricktask.data.network.retrofit.api
 
-import com.avv2050soft.ricktask.data.network.dto.CamerasResponseDto
-import com.avv2050soft.ricktask.data.network.dto.DoorsResponseDto
+import com.avv2050soft.ricktask.data.network.retrofit.dto.CamerasResponseDto
+import com.avv2050soft.ricktask.data.network.retrofit.dto.DoorsResponseDto
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
