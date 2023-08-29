@@ -1,5 +1,7 @@
-package com.avv2050soft.ricktask.data.network.ktor
+package com.avv2050soft.ricktask.data.network.ktor.api
 
+import com.avv2050soft.ricktask.data.network.ktor.dto.CamerasResponseKtorDto
+import com.avv2050soft.ricktask.data.network.ktor.dto.DoorsResponseKtorDto
 import io.ktor.client.HttpClient
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.KotlinxSerializer
@@ -29,7 +31,7 @@ interface KtorApi {
                 }
             }
 
-            return object : KtorApi{
+            return object : KtorApi {
                 override suspend fun getCamerasResponse(): CamerasResponseKtorDto {
                     return client.get("$BASE_URL/cameras/")
                 }

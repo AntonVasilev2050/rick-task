@@ -1,7 +1,7 @@
 package com.avv2050soft.ricktask.data.network.ktor.repository
 
-import com.avv2050soft.ricktask.data.network.ktor.KtorApi
-import com.avv2050soft.ricktask.data.network.ktor.KtorMapper
+import com.avv2050soft.ricktask.data.network.ktor.api.KtorApi
+import com.avv2050soft.ricktask.data.network.ktor.mappers.KtorMapper
 import com.avv2050soft.ricktask.domain.models.cameras.CamerasResponse
 import com.avv2050soft.ricktask.domain.models.doors.DoorsResponse
 import com.avv2050soft.ricktask.domain.repository.CprogroupRepository

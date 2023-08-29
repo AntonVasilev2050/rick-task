@@ -5,8 +5,8 @@ import android.content.Context
 import com.avv2050soft.ricktask.data.local.realm.mappers.RealmMapper
 import com.avv2050soft.ricktask.data.local.realm.repository.DatabaseRepositoryRealmImpl
 import com.avv2050soft.ricktask.data.local.room.mappers.RoomMapper
-import com.avv2050soft.ricktask.data.network.ktor.KtorMapper
-import com.avv2050soft.ricktask.data.network.ktor.repository.CprogroupRepositoryKtorImp
+import com.avv2050soft.ricktask.data.local.room.repository.DatabaseRepositoryRoomImpl
+import com.avv2050soft.ricktask.data.network.ktor.mappers.KtorMapper
 import com.avv2050soft.ricktask.data.network.retrofit.mappers.RetrofitMapper
 import com.avv2050soft.ricktask.data.network.retrofit.repository.CprogroupRepositoryRetrofitImpl
 import com.avv2050soft.ricktask.domain.repository.CprogroupRepository
@@ -14,6 +14,7 @@ import com.avv2050soft.ricktask.domain.repository.DatabaseRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -68,7 +69,7 @@ class DataModule {
 //    @Provides
 //    @Singleton
 //    fun provideDatabaseRepository(@ApplicationContext context: Context) : DatabaseRepository {
-//        return DatabaseRepositoryImpl(context = context, mapper = CprogroupMapper())
+//        return DatabaseRepositoryRoomImpl(context = context, mapper = RoomMapper())
 //    }
 
     @Provides

@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class DoorsResponse(
-    var `data`: List<DoorItem>,
+    var `data`: List<DoorItem>?,
     val success: Boolean
 )

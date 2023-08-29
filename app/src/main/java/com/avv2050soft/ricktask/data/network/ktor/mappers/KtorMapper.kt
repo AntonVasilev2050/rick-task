@@ -1,5 +1,7 @@
-package com.avv2050soft.ricktask.data.network.ktor
+package com.avv2050soft.ricktask.data.network.ktor.mappers
 
+import com.avv2050soft.ricktask.data.network.ktor.dto.CamerasResponseKtorDto
+import com.avv2050soft.ricktask.data.network.ktor.dto.DoorsResponseKtorDto
 import com.avv2050soft.ricktask.domain.models.cameras.CamerasResponse
 import com.avv2050soft.ricktask.domain.models.doors.DoorsResponse
 
