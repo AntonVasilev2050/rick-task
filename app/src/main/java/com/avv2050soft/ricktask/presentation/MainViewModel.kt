@@ -50,7 +50,7 @@ class MainViewModel @Inject constructor(
                     camerasResponseState.value = camerasResponse
                 }
                 .onFailure {
-                    Log.d("data_test", it.message.toString())
+                    Log.d("data_test", "failed to load CameraResponse: ${it.message}")
                 }
         }
     }
@@ -64,7 +64,7 @@ class MainViewModel @Inject constructor(
                     doorsResponseState.value = doorsResponse
                 }
                 .onFailure {
-                    Log.d("data_test", it.message.toString())
+                    Log.d("data_test", "failed to load DoorsResponse: ${it.message}")
                 }
         }
     }

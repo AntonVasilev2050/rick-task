@@ -8,6 +8,7 @@ plugins {
     id("com.google.devtools.ksp")
     id("kotlin-kapt")
     id("realm-android")
+    id ("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
@@ -84,8 +85,8 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.2")
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2")
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.0")
 
     implementation("com.github.bumptech.glide:glide:4.14.2")
     annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
@@ -105,11 +106,15 @@ dependencies {
     implementation("com.google.accompanist:accompanist-pager:0.25.0") // Pager
     implementation("com.google.accompanist:accompanist-pager-indicators:0.25.0") // Pager Indicators
 
-//    Ktor
-    implementation("io.ktor:ktor-client-core:2.1.2")
-    implementation("io.ktor:ktor-client-json:1.6.4")
-    implementation("io.ktor:ktor-client-gson:1.6.4")
-    implementation("io.ktor:ktor-client-logging:2.1.2")
+//Ktor dependencies
+    implementation ("io.ktor:ktor-client-core:1.6.4")
+// HTTP engine: The HTTP client used to perform network requests.
+    implementation ("io.ktor:ktor-client-android:1.6.4")
+// The serialization engine used to convert objects to and from JSON.
+    implementation ("io.ktor:ktor-client-serialization:1.6.4")
+// Logging
+    implementation ("io.ktor:ktor-client-logging:1.6.4")
+    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
 }
 
 

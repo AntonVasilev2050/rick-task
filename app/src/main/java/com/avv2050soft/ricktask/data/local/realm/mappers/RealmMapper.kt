@@ -22,7 +22,7 @@ class RealmMapper {
         return cameraItemRealm
     }
 
-    fun mapDoorItemToRoomItemRealm(doorItem: DoorItem): DoorItemRealm {
+    fun mapDoorItemToDoorItemRealm(doorItem: DoorItem): DoorItemRealm {
         val doorItemRealm = DoorItemRealm()
         doorItemRealm.id = doorItem.id
         doorItemRealm.favorites = doorItem.favorites
@@ -35,7 +35,7 @@ class RealmMapper {
                 doorItemRealm.name = doorItem.name
             }
         }
-        doorItemRealm.room = doorItem.room
+        doorItemRealm.room = doorItem.room.toString()
         doorItemRealm.snapshot = doorItem.snapshot
         return doorItemRealm
     }

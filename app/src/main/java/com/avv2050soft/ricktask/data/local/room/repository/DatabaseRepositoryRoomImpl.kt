@@ -1,4 +1,4 @@
-package com.avv2050soft.ricktask.data.repository
+package com.avv2050soft.ricktask.data.local.room.repository
 
 import android.content.Context
 import com.avv2050soft.ricktask.data.local.room.db.CprogroupDatabase
@@ -8,7 +8,7 @@ import com.avv2050soft.ricktask.domain.models.doors.DoorItem
 import com.avv2050soft.ricktask.domain.repository.DatabaseRepository
 import javax.inject.Inject
 
-class DatabaseRepositoryImpl @Inject constructor(
+class DatabaseRepositoryRoomImpl @Inject constructor(
     context: Context,
     private val mapper: RoomMapper
 ): DatabaseRepository {

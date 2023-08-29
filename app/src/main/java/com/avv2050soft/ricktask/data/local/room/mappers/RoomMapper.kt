@@ -10,17 +10,6 @@ import com.avv2050soft.ricktask.domain.models.doors.DoorItem
 import com.avv2050soft.ricktask.domain.models.doors.DoorsResponse
 
 class RoomMapper {
-    fun mapCamerasResponseDtoToCamerasResponse(camerasResponseDto: CamerasResponseDto) =
-        CamerasResponse(
-            data = camerasResponseDto.data,
-            success = camerasResponseDto.success
-        )
-
-    fun mapDoorsResponseDtoToDoorsResponse(doorsResponseDto: DoorsResponseDto) =
-        DoorsResponse(
-            data = doorsResponseDto.data,
-            success = doorsResponseDto.success
-        )
 
     fun mapCameraItemToCameraItemDb(cameraItem: CameraItem) = CameraItemDb(
         id = cameraItem.id,
@@ -35,8 +24,8 @@ class RoomMapper {
         id = doorItem.id,
         favorites = doorItem.favorites,
         name = doorItem.name,
-        room = doorItem.room,
-        snapshot = doorItem.snapshot ?: null
+        room = doorItem.room.toString(),
+        snapshot = doorItem.snapshot
     )
 
     fun mapCameraItemDbListToCameraItemList(cameraItemDbList: List<CameraItemDb>) : List<CameraItem> {

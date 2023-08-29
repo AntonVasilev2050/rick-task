@@ -24,7 +24,7 @@ class DatabaseRepositoryRealmImpl @Inject constructor(
 
     override suspend fun insertDoorItem(doorItem: DoorItem) {
         realm.executeTransaction {
-            val doorItemRealm = mapper.mapDoorItemToRoomItemRealm(doorItem)
+            val doorItemRealm = mapper.mapDoorItemToDoorItemRealm(doorItem)
             realm.insertOrUpdate(doorItemRealm)
         }
     }

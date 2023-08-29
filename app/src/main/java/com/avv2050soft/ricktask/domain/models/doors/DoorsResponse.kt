@@ -1,6 +1,9 @@
 package com.avv2050soft.ricktask.domain.models.doors
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class DoorsResponse(
-    val `data`: List<DoorItem>,
+    var `data`: List<DoorItem>,
     val success: Boolean
 )

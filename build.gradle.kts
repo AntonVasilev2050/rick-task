@@ -1,7 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript{
     dependencies{
-        classpath("io.realm:realm-gradle-plugin:10.15.1")
+        classpath("io.realm:realm-gradle-plugin:10.16.1")
+        classpath ("org.jetbrains.kotlin:kotlin-serialization:1.8.10")
     }
 }
 

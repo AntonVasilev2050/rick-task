@@ -2,7 +2,9 @@ package com.avv2050soft.ricktask.domain.models.doors
 
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class DoorItem(
     @SerializedName("favorites")
     val favorites: Boolean,
@@ -11,7 +13,7 @@ data class DoorItem(
     @SerializedName("name")
     val name: String,
     @SerializedName("room")
-    var room: String,
+    var room: String?,
     @SerializedName("snapshot")
-    val snapshot: String?
+    var snapshot: String?
 )
