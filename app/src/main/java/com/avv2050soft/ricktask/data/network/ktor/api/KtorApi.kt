@@ -12,7 +12,6 @@ import io.ktor.client.request.get
 interface KtorApi {
 
     suspend fun getCamerasResponse(): CamerasResponseKtorDto
-
     suspend fun getDoorsResponse(): DoorsResponseKtorDto
 
     companion object {
@@ -33,11 +32,11 @@ interface KtorApi {
 
             return object : KtorApi {
                 override suspend fun getCamerasResponse(): CamerasResponseKtorDto {
-                    return client.get("$BASE_URL/cameras/")
+                    return client.get(CAMERAS)
                 }
 
                 override suspend fun getDoorsResponse(): DoorsResponseKtorDto {
-                    return client.get("$BASE_URL/doors/")
+                    return client.get(DOORS)
                 }
 
             }
