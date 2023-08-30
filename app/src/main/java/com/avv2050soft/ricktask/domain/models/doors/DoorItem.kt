@@ -15,5 +15,5 @@ data class DoorItem(
     @SerializedName("room")
     var room: String?,
     @SerializedName("snapshot")
-    var snapshot: String?
+    var snapshot: String? = null
 )

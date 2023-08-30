@@ -7,6 +7,7 @@ import com.avv2050soft.ricktask.data.local.realm.repository.DatabaseRepositoryRe
 import com.avv2050soft.ricktask.data.local.room.mappers.RoomMapper
 import com.avv2050soft.ricktask.data.local.room.repository.DatabaseRepositoryRoomImpl
 import com.avv2050soft.ricktask.data.network.ktor.mappers.KtorMapper
+import com.avv2050soft.ricktask.data.network.ktor.repository.CprogroupRepositoryKtorImp
 import com.avv2050soft.ricktask.data.network.retrofit.mappers.RetrofitMapper
 import com.avv2050soft.ricktask.data.network.retrofit.repository.CprogroupRepositoryRetrofitImpl
 import com.avv2050soft.ricktask.domain.repository.CprogroupRepository
@@ -53,17 +54,17 @@ class DataModule {
     }
 
 //    Можно использовать Retrofit или Ktor
-    @Provides
-    @Singleton
-    fun provideCprogroupRepository(): CprogroupRepository{
-        return CprogroupRepositoryRetrofitImpl(mapper = RetrofitMapper())
-    }
-
 //    @Provides
 //    @Singleton
-//    fun provideCprogroupRepository(): CprogroupRepository {
-//        return CprogroupRepositoryKtorImp(mapper = KtorMapper())
+//    fun provideCprogroupRepository(): CprogroupRepository{
+//        return CprogroupRepositoryRetrofitImpl(mapper = RetrofitMapper())
 //    }
+
+    @Provides
+    @Singleton
+    fun provideCprogroupRepository(): CprogroupRepository {
+        return CprogroupRepositoryKtorImp(mapper = KtorMapper())
+    }
 
 //    Можно использовать Room Database или Realm
 //    @Provides
